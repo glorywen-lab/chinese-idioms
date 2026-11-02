@@ -90,7 +90,7 @@ html_code = """<!DOCTYPE html>
           <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 shadow-sm whitespace-nowrap">Designed by 鄭汶瑜 | 壽山國中</span>
         </div>
         <p class="text-xs sm:text-sm text-heritage-700 font-semibold mt-1">
-          7上至9下 17 次段考 ＋ 其實還有 1,435 則成語
+          【7上至9下 17 次段考 ＋ 其實還有】共 1,435 則成語
         </p>
       </div>
     </div>
@@ -167,7 +167,7 @@ html_code = """<!DOCTYPE html>
           <span class="text-emerald-700 font-extrabold">隨機多句型題庫</span>
         </div>
         <h2 class="text-2xl sm:text-3xl font-black font-serif text-heritage-900 mb-2">{{ currentUnit.name }} · 成語能力檢測</h2>
-        <p class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
           每則成語配備多組相異語境生活待答句，提供「逐列精熟學習」與「隨機抽 20 題段考模擬考」！
         </p>
 
