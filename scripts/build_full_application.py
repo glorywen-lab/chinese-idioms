@@ -89,10 +89,9 @@ html_code = """<!DOCTYPE html>
           <h1 class="text-xl sm:text-2xl font-black font-serif tracking-wide text-heritage-900">國中成語挑戰殿堂</h1>
           <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 shadow-sm whitespace-nowrap">Designed by 鄭汶瑜 | 壽山國中</span>
         </div>
-        <div class="text-xs sm:text-sm text-heritage-600 font-medium mt-1">
-          <div>教育部《成語典》全套檢測</div>
-          <div class="text-heritage-700 font-semibold mt-0.5">7上至9下 17 次段考 ＋ 其實還有 1,435 則成語</div>
-        </div>
+        <p class="text-xs sm:text-sm text-heritage-700 font-semibold mt-1">
+          7上至9下 17 次段考 ＋ 其實還有 1,435 則成語
+        </p>
       </div>
     </div>
     <div class="flex items-center gap-2">
@@ -165,11 +164,11 @@ html_code = """<!DOCTYPE html>
           <span>•</span>
           <span>共 {{ currentUnit.total_idioms }} 則成語</span>
           <span>•</span>
-          <span class="text-emerald-700 font-extrabold">隨機多句型題庫防重複</span>
+          <span class="text-emerald-700 font-extrabold">隨機多句型題庫</span>
         </div>
         <h2 class="text-2xl sm:text-3xl font-black font-serif text-heritage-900 mb-2">{{ currentUnit.name }} · 成語能力檢測</h2>
         <p class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-          由 <strong>Designed by 鄭汶瑜 | 壽山國中</strong> 嚴選規劃，依據教育部《成語典》筆畫索引與段考進度編排。每則成語配備多組相異語境生活待答句，提供「逐列精熟學習」與「隨機抽 20 題段考模擬考」！
+          每則成語配備多組相異語境生活待答句，提供「逐列精熟學習」與「隨機抽 20 題段考模擬考」！
         </p>
 
         <!-- Stats Bar -->
@@ -206,7 +205,10 @@ html_code = """<!DOCTYPE html>
             <span>句式隨機不重複</span>
           </div>
           <h3 class="text-xl font-black font-serif text-heritage-900">{{ currentUnit.name }} · 綜合能力隨機抽測</h3>
-          <p class="text-xs sm:text-sm text-stone-600 mt-1">從本大單元（{{ currentUnit.total_idioms }} 則成語）中隨機挑選 20 題，全真模擬段考計時與作答卡，答完統一交卷結算！</p>
+          <p class="text-xs sm:text-sm text-stone-600 mt-1 leading-relaxed">
+            <span>從本大單元（{{ currentUnit.total_idioms }} 則成語）中隨機挑選 20 題，</span><br>
+            <span>全真模擬段考計時與作答卡，答完統一交卷結算！</span>
+          </p>
         </div>
         <button @click="startExamMode" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-amberGold-500 to-amberGold-600 hover:from-amberGold-600 hover:to-amber-700 text-white font-bold text-base shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 whitespace-nowrap">
           <span>🚀 開始段考抽測</span>
