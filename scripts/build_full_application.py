@@ -9,7 +9,7 @@ html_code = """<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>國中文言成語挑戰殿堂 · 壽山國中 鄭汶瑜 設計</title>
+  <title>國中成語挑戰殿堂 · Designed by 鄭汶瑜 | 壽山國中</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Vue 3 CDN -->
@@ -85,11 +85,14 @@ html_code = """<!DOCTYPE html>
         典
       </div>
       <div>
-        <div class="flex items-center gap-2">
-          <h1 class="text-xl sm:text-2xl font-black font-serif tracking-wide text-heritage-900">國中文言成語挑戰殿堂</h1>
-          <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 shadow-sm">壽山國中 鄭汶瑜 設計</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <h1 class="text-xl sm:text-2xl font-black font-serif tracking-wide text-heritage-900">國中成語挑戰殿堂</h1>
+          <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 shadow-sm whitespace-nowrap">Designed by 鄭汶瑜 | 壽山國中</span>
         </div>
-        <p class="text-xs sm:text-sm text-heritage-600 font-medium">教育部《成語典》全套檢測 · 7上至9下 17 次段考 ＋ 其實還有 1,435 則成語</p>
+        <div class="text-xs sm:text-sm text-heritage-600 font-medium mt-1">
+          <div>教育部《成語典》全套檢測</div>
+          <div class="text-heritage-700 font-semibold mt-0.5">7上至9下 17 次段考 ＋ 其實還有 1,435 則成語</div>
+        </div>
       </div>
     </div>
     <div class="flex items-center gap-2">
@@ -166,7 +169,7 @@ html_code = """<!DOCTYPE html>
         </div>
         <h2 class="text-2xl sm:text-3xl font-black font-serif text-heritage-900 mb-2">{{ currentUnit.name }} · 成語能力檢測</h2>
         <p class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-          由<strong>壽山國中 鄭汶瑜 老師</strong>嚴選規劃，依據教育部《成語典》筆畫索引與段考進度編排。每則成語配備多組相異語境生活待答句，提供「逐列精熟學習」與「隨機抽 20 題段考模擬考」！
+          由 <strong>Designed by 鄭汶瑜 | 壽山國中</strong> 嚴選規劃，依據教育部《成語典》筆畫索引與段考進度編排。每則成語配備多組相異語境生活待答句，提供「逐列精熟學習」與「隨機抽 20 題段考模擬考」！
         </p>
 
         <!-- Stats Bar -->
@@ -681,7 +684,7 @@ html_code = """<!DOCTYPE html>
   <!-- ==================== FOOTER ==================== -->
   <footer class="mt-8 pt-4 border-t border-heritage-200 text-center text-xs text-stone-500 flex flex-col sm:flex-row items-center justify-between gap-2">
     <div>
-      國中文言成語挑戰殿堂 · <strong>壽山國中 鄭汶瑜 設計</strong> · 支援離線與本地儲存
+      國中成語挑戰殿堂 · <strong>Designed by 鄭汶瑜 | 壽山國中</strong>
     </div>
     <div class="flex items-center gap-3">
       <button @click="exportSaveData" class="hover:underline">匯出進度</button>
