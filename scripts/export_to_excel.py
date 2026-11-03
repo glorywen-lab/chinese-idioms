@@ -90,7 +90,7 @@ for u_idx, (uid, u) in enumerate(db.items(), 2):
         sh_name,
         count,
         s_count,
-        "教育部《成語典》嚴選 · 3組相異情境句 (文學/典籍/生活素養)"
+        "教育部《成語典》嚴選 · 臺灣教育部注音符號 · 3組相異情境句 (文學/典籍/生活素養)"
     ]
     ws_summary.append(row_vals)
     ws_summary.row_dimensions[u_idx].height = 24
@@ -134,7 +134,7 @@ for i, w in enumerate(sum_col_widths, 1):
 # 2. 建立 20 個單元各自獨立的分頁 (20 Unit Worksheets)
 # -------------------------------------------------------------
 unit_headers = [
-    "序號", "成語正字", "注音 / 拼音", "教育部標準釋義",
+    "序號", "成語正字", "臺灣注音符號", "教育部標準釋義",
     "待答題 (變式一·經典文學)", "待答題 (變式二·古籍名句)", "待答題 (變式三·生活素養)",
     "標準答案"
 ]
@@ -163,7 +163,7 @@ for uid, u in db.items():
         s2 = sents[1] if len(sents) > 1 else ""
         s3 = sents[2] if len(sents) > 2 else ""
         w = it.get("idiom", "")
-        py = it.get("zhuyin") or it.get("pinyin", "")
+        py = it.get("zhuyin", "")
         meaning = it.get("meaning", "")
         
         row_data = [idx, w, py, meaning, s1, s2, s3, w]
@@ -221,7 +221,7 @@ ws_master.views.sheetView[0].showGridLines = True
 ws_master.freeze_panes = "A2"
 
 master_headers = [
-    "全書題號", "單元全稱", "所屬分頁", "成語正字", "注音 / 拼音", "標準釋義",
+    "全書題號", "單元全稱", "所屬分頁", "成語正字", "臺灣注音符號", "標準釋義",
     "待答題 (變式一·經典文學)", "待答題 (變式二·古籍名句)", "待答題 (變式三·生活素養)",
     "標準答案"
 ]

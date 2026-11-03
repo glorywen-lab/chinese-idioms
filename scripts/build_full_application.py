@@ -353,7 +353,7 @@ html_code = """<!DOCTYPE html>
           </div>
           <p class="text-xs sm:text-sm leading-relaxed mb-2">{{ currentQ.explanation }}</p>
           <div class="text-xs text-stone-600 font-medium">
-            <span class="font-bold">【成語釋義】</span> {{ currentQ.meaning }} (注音: {{ currentQ.pinyin }})
+            <span class="font-bold">【成語釋義】</span> {{ currentQ.meaning }} (注音: {{ currentQ.zhuyin || currentQ.pinyin }})
           </div>
         </div>
 
@@ -507,7 +507,7 @@ html_code = """<!DOCTYPE html>
               <span class="text-rose-600 font-bold">你的答案：</span> {{ item.chosen || '未作答' }}
             </div>
             <div class="p-2 rounded bg-white border border-emerald-200">
-              <span class="text-emerald-700 font-bold">正確成語：</span> <strong class="font-serif text-emerald-800 text-sm">{{ item.q.answer }}</strong> ({{ item.q.pinyin }})
+              <span class="text-emerald-700 font-bold">正確成語：</span> <strong class="font-serif text-emerald-800 text-sm">{{ item.q.answer }}</strong> ({{ item.q.zhuyin || item.q.pinyin }})
             </div>
           </div>
           <div class="text-xs text-stone-700 leading-relaxed bg-white/80 p-3 rounded-lg border border-stone-200">
@@ -610,7 +610,7 @@ html_code = """<!DOCTYPE html>
           {{ item.q.sentence.replace('【　　】', '【 ' + item.q.answer + ' 】') }}
         </div>
         <div class="bg-white p-3 rounded-lg border border-stone-200 text-xs leading-relaxed">
-          <div class="font-bold text-emerald-800 mb-1">正解：{{ item.q.answer }} ({{ item.q.pinyin }})</div>
+          <div class="font-bold text-emerald-800 mb-1">正解：{{ item.q.answer }} ({{ item.q.zhuyin || item.q.pinyin }})</div>
           <div class="text-stone-700 mb-1"><strong>釋義：</strong>{{ item.q.meaning }}</div>
           <div class="text-stone-500"><strong>解析：</strong>{{ item.q.explanation }}</div>
         </div>
@@ -650,7 +650,7 @@ html_code = """<!DOCTYPE html>
             <span class="text-xs font-bold text-heritage-600 bg-heritage-100 px-2 py-0.5 rounded">
               第 {{ q.row_num }} 列 · 小單元 {{ q.sub_id }}
             </span>
-            <span class="text-xs text-stone-400 font-mono">{{ q.pinyin }}</span>
+            <span class="text-xs text-stone-500 font-sans tracking-wide font-medium">{{ q.zhuyin || q.pinyin }}</span>
           </div>
           <h3 class="text-xl font-black font-serif text-heritage-900 mb-1">{{ q.idiom }}</h3>
           <p class="text-xs font-medium text-stone-600 mb-3">{{ q.meaning }}</p>
