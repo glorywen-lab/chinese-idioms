@@ -1,4 +1,53 @@
+# Teaching Material Folders (Excluded from Idioms Git Repo)
+00_文章這樣讀與核心教學策略/
+114-1/
+114-2/
+115-1/
+常用備課參考書/
+public/
+Agent/
+.agents/
+.firebase/
+file_versions/
+
+# Firebase configs
+firebase.json
+.firebaserc
+
 # Intermediate logs and scratch files
 debug_logs/
 .keep
 國中成語挑戰殿堂/data/xinhua_idioms.json
+
+# Exclude non-idiom scripts
+scripts/
+!scripts/analyze_layout.py
+!scripts/build_full_application.py
+!scripts/build_full_database.py
+!scripts/build_html.py
+!scripts/build_refined_database.py
+!scripts/check_all_units.py
+!scripts/check_dict_fields.py
+!scripts/check_ocr.py
+!scripts/check_parsed_rows.py
+!scripts/crop_target_tiers.py
+!scripts/download_dict.py
+!scripts/export_to_excel.py
+!scripts/generate_multi_sentences.py
+!scripts/generate_questions.py
+!scripts/generate_taiwan_zhuyin.py
+!scripts/inspect_col.py
+!scripts/match_and_clean_all_rows.py
+!scripts/ocr_all_pages.py
+!scripts/ocr_target_tiers.py
+!scripts/parse_all_80_rows.py
+!scripts/parse_tiers.py
+!scripts/plan_all_units.py
+!scripts/read_col.py
+!scripts/read_tail_rows.py
+!scripts/run_ocr_sample.py
+!scripts/update_html_multi_sentences.py
+!scripts/verify_100_idioms.py
+!scripts/verify_database_quality.py
+!scripts/verify_tier_29.py
+!scripts/verify_tier_30.py
