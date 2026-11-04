@@ -1,0 +1,122 @@
+{
+  "7_1_1": {
+    "name": "7上 第1次段考",
+    "total": 78,
+    "has_example": 59,
+    "has_derivation": 0
+  },
+  "7_1_2": {
+    "name": "7上 第2次段考",
+    "total": 80,
+    "has_example": 67,
+    "has_derivation": 0
+  },
+  "7_1_3": {
+    "name": "7上 第3次段考",
+    "total": 79,
+    "has_example": 50,
+    "has_derivation": 0
+  },
+  "7_2_1": {
+    "name": "7下 第1次段考",
+    "total": 77,
+    "has_example": 57,
+    "has_derivation": 0
+  },
+  "7_2_2": {
+    "name": "7下 第2次段考",
+    "total": 78,
+    "has_example": 55,
+    "has_derivation": 0
+  },
+  "7_2_3": {
+    "name": "7下 第3次段考",
+    "total": 80,
+    "has_example": 58,
+    "has_derivation": 0
+  },
+  "8_1_1": {
+    "name": "8上 第1次段考",
+    "total": 68,
+    "has_example": 49,
+    "has_derivation": 0
+  },
+  "8_1_2": {
+    "name": "8上 第2次段考",
+    "total": 78,
+    "has_example": 59,
+    "has_derivation": 0
+  },
+  "8_1_3": {
+    "name": "8上 第3次段考",
+    "total": 80,
+    "has_example": 57,
+    "has_derivation": 0
+  },
+  "8_2_1": {
+    "name": "8下 第1次段考",
+    "total": 72,
+    "has_example": 49,
+    "has_derivation": 0
+  },
+  "8_2_2": {
+    "name": "8下 第2次段考",
+    "total": 77,
+    "has_example": 59,
+    "has_derivation": 0
+  },
+  "8_2_3": {
+    "name": "8下 第3次段考",
+    "total": 78,
+    "has_example": 59,
+    "has_derivation": 0
+  },
+  "9_1_1": {
+    "name": "9上 第1次段考",
+    "total": 67,
+    "has_example": 50,
+    "has_derivation": 0
+  },
+  "9_1_2": {
+    "name": "9上 第2次段考",
+    "total": 77,
+    "has_example": 52,
+    "has_derivation": 0
+  },
+  "9_1_3": {
+    "name": "9上 第3次段考",
+    "total": 68,
+    "has_example": 53,
+    "has_derivation": 0
+  },
+  "9_2_1": {
+    "name": "9下 第1次段考",
+    "total": 69,
+    "has_example": 49,
+    "has_derivation": 0
+  },
+  "9_2_2": {
+    "name": "9下 第2次段考",
+    "total": 67,
+    "has_example": 53,
+    "has_derivation": 0
+  },
+  "extra_1": {
+    "name": "其實還有 · 拔尖卷(一)",
+    "total": 66,
+    "has_example": 53,
+    "has_derivation": 0
+  },
+  "extra_2": {
+    "name": "其實還有 · 拔尖卷(二)",
+    "total": 68,
+    "has_example": 48,
+    "has_derivation": 0
+  },
+  "extra_3": {
+    "name": "其實還有 · 終極卷(三)",
+    "total": 28,
+    "has_example": 25,
+    "has_derivation": 0
+  }
+}

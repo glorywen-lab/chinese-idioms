@@ -1,0 +1,74 @@
+[
+  {
+    "idiom": "三令五申",
+    "exp": "令命令；申表達，說明。多次命令和告誡。",
+    "feat": {
+      "derogatory": false,
+      "commendatory": false,
+      "category": "general"
+    }
+  },
+  {
+    "idiom": "三年五載",
+    "exp": "三、五表示大概數量；載年。指多年。",
+    "feat": {
+      "derogatory": false,
+      "commendatory": false,
+      "category": "general"
+    }
+  },
+  {
+    "idiom": "世外桃源",
+    "exp": "原指與現實社會隔絕、生活安樂的理想境界◇也指環境幽靜生活安逸的地方。借指一種空想的脫離現實鬥爭的美好世界。",
+    "feat": {
+      "derogatory": false,
+      "commendatory": false,
+      "category": "general"
+    }
+  },
+  {
+    "idiom": "扭轉乾坤",
+    "exp": "乾坤天地。比喻從根本上改變整個局面。",
+    "feat": {
+      "derogatory": false,
+      "commendatory": false,
+      "category": "general"
+    }
+  },
+  {
+    "idiom": "投其所好",
+    "exp": "投迎合；其代詞，他，他的；好愛好。迎合別人的喜好。",
+    "feat": {
+      "derogatory": false,
+      "commendatory": false,
+      "category": "general"
+    }
+  },
+  {
+    "idiom": "投桃報李",
+    "exp": "意思是他送給我桃兒，我以李子回贈他。比喻友好往來或互相贈送東西。",
+    "feat": {
+      "derogatory": false,
+      "commendatory": false,
+      "category": "general"
+    }
+  },
+  {
+    "idiom": "盛氣凌人",
+    "exp": "盛氣驕橫的氣焰；凌欺凌。以驕橫的氣勢壓人。形容傲慢自大，氣勢逼人。",
+    "feat": {
+      "derogatory": true,
+      "commendatory": false,
+      "category": "general"
+    }
+  },
+  {
+    "idiom": "眼高手低",
+    "exp": "眼力過高，手法過低。指要求的標準很高（甚至不切實際），但實際上自己也做不到。",
+    "feat": {
+      "derogatory": false,
+      "commendatory": false,
+      "category": "general"
+    }
+  }
+]
