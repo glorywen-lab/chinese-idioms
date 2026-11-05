@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import json
+import os
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
-db_path = "G:/其他電腦/我的電腦/GloryCloud/01_教學/0-教學資料/0-國文課/debug_logs/full_all_units_database.json"
+db_path = os.path.join(os.path.dirname(__file__), "..", "data", "full_all_units_database.json")
 with open(db_path, "r", encoding="utf-8") as f:
     db = json.load(f)
 
@@ -268,7 +269,25 @@ for i, w_val in enumerate(master_col_widths, 1):
 # -------------------------------------------------------------
 # Save workbook
 # -------------------------------------------------------------
-output_excel_path = "G:/其他電腦/我的電腦/GloryCloud/01_教學/0-教學資料/0-國文課/國中成語挑戰殿堂_題庫總表.xlsx"
-wb.save(output_excel_path)
-print(f"Excel workbook successfully generated at: {output_excel_path}")
+from datetime import datetime
+
+base_dir = os.path.join(os.path.dirname(__file__), "..")
+candidates = [
+    os.path.join(base_dir, "國中成語挑戰殿堂_題庫總表.xlsx"),
+    os.path.join(base_dir, "國中成語挑戰殿堂_題庫總表_檢修最新版.xlsx"),
+    os.path.join(base_dir, f"國中成語挑戰殿堂_題庫總表_檢修_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx")
+]
+
+saved = False
+for p in candidates:
+    try:
+        wb.save(p)
+        print(f"Excel workbook successfully saved at: {p}")
+        saved = True
+        break
+    except PermissionError:
+        continue
+
+if not saved:
+    print("Warning: Could not save workbook to any target path due to file locks.")
 print(f"Total sheets: {len(wb.sheetnames)} sheets (Overview + 20 Units + Master)")

@@ -1,8 +1,79 @@
 # -*- coding: utf-8 -*-
 import json
+import math
+import random
 
-with open("debug_logs/full_all_units_database.json", "r", encoding="utf-8") as f:
-    full_units = json.load(f)
+unit_definitions = [
+    {"id": "7_1_1", "name": "7上 第1次段考", "grade": "七年級上學期", "rows": [1, 2, 3, 4]},
+    {"id": "7_1_2", "name": "7上 第2次段考", "grade": "七年級上學期", "rows": [5, 6, 7, 8]},
+    {"id": "7_1_3", "name": "7上 第3次段考", "grade": "七年級上學期", "rows": [9, 10, 11, 12]},
+    {"id": "7_2_1", "name": "7下 第1次段考", "grade": "七年級下學期", "rows": [13, 14, 15, 16]},
+    {"id": "7_2_2", "name": "7下 第2次段考", "grade": "七年級下學期", "rows": [17, 18, 19, 20]},
+    {"id": "7_2_3", "name": "7下 第3次段考", "grade": "七年級下學期", "rows": [21, 22, 23, 24]},
+    {"id": "8_1_1", "name": "8上 第1次段考", "grade": "八年級上學期", "rows": [25, 26, 27, 28]},
+    {"id": "8_1_2", "name": "8上 第2次段考", "grade": "八年級上學期", "rows": [29, 30, 31, 32]},
+    {"id": "8_1_3", "name": "8上 第3次段考", "grade": "八年級上學期", "rows": [33, 34, 35, 36]},
+    {"id": "8_2_1", "name": "8下 第1次段考", "grade": "八年級下學期", "rows": [37, 38, 39, 40]},
+    {"id": "8_2_2", "name": "8下 第2次段考", "grade": "八年級下學期", "rows": [41, 42, 43, 44]},
+    {"id": "8_2_3", "name": "8下 第3次段考", "grade": "八年級下學期", "rows": [45, 46, 47, 48]},
+    {"id": "9_1_1", "name": "9上 第1次段考", "grade": "九年級上學期", "rows": [49, 50, 51, 52]},
+    {"id": "9_1_2", "name": "9上 第2次段考", "grade": "九年級上學期", "rows": [53, 54, 55, 56]},
+    {"id": "9_1_3", "name": "9上 第3次段考", "grade": "九年級上學期", "rows": [57, 58, 59, 60]},
+    {"id": "9_2_1", "name": "9下 第1次段考", "grade": "九年級下學期", "rows": [61, 62, 63, 64]},
+    {"id": "9_2_2", "name": "9下 第2次段考", "grade": "九年級下學期", "rows": [65, 66, 67, 68]},
+    {"id": "extra_1", "name": "其實還有 · 拔尖卷(一)", "grade": "進階高手擴充", "rows": [69, 70, 71, 72]},
+    {"id": "extra_2", "name": "其實還有 · 拔尖卷(二)", "grade": "進階高手擴充", "rows": [73, 74, 75, 76]},
+    {"id": "extra_3", "name": "其實還有 · 終極卷(三)", "grade": "進階高手擴充", "rows": [77, 78, 79, 80]}
+]
+
+with open("data/full_all_units_database.json", "r", encoding="utf-8") as f:
+    raw_units = json.load(f)
+
+full_units = {}
+for u_def in unit_definitions:
+    u_id = u_def["id"]
+    u_data = raw_units.get(u_id, {})
+    idioms_list = u_data.get("idioms", [])
+    total = len(idioms_list)
+    rows = u_def["rows"]
+    
+    chunk_size = math.ceil(total / len(rows))
+    subunits = []
+    all_idiom_names = [it["idiom"] for it in idioms_list]
+    
+    for sub_idx, r_num in enumerate(rows, 1):
+        start_idx = (sub_idx - 1) * chunk_size
+        end_idx = min(start_idx + chunk_size, total)
+        chunk = idioms_list[start_idx:end_idx]
+        
+        sample_names = "、".join([it["idiom"] for it in chunk[:5]]) + ("..." if len(chunk) > 5 else "")
+        subunits.append({
+            "sub_id": sub_idx,
+            "row_num": r_num,
+            "row_name": f"第 {r_num} 列",
+            "title": f"小單元 {sub_idx} (第 {r_num} 列)",
+            "sample_idioms": sample_names,
+            "count": len(chunk)
+        })
+        
+        for it in chunk:
+            it["sub_id"] = sub_idx
+            it["row_num"] = r_num
+            if "distractors" not in it or len(it.get("distractors", [])) < 3:
+                candidates = [w for w in all_idiom_names if w != it["idiom"]]
+                if len(candidates) >= 3:
+                    it["distractors"] = random.sample(candidates, 3)
+                else:
+                    it["distractors"] = ["一心一意", "井底之蛙", "守株待兔"]
+                    
+    full_units[u_id] = {
+        "id": u_id,
+        "name": u_def["name"],
+        "grade": u_def["grade"],
+        "subunits": subunits,
+        "total_idioms": total,
+        "idioms": idioms_list
+    }
 
 html_code = """<!DOCTYPE html>
 <html lang="zh-TW">
@@ -12,8 +83,13 @@ html_code = """<!DOCTYPE html>
   <title>國中成語挑戰殿堂 · Designed by 鄭汶瑜 | 壽山國中</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Vue 3 CDN -->
-  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <!-- Vue 3 CDN (jsDelivr with unpkg fallback) -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    if (typeof Vue === 'undefined') {
+      document.write('<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"><\\/script>');
+    }
+  </script>
   <!-- Canvas Confetti CDN -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <!-- Google Fonts: Noto Serif TC & Noto Sans TC -->
@@ -21,6 +97,7 @@ html_code = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
   <script>
+    window.tailwind = window.tailwind || {};
     tailwind.config = {
       theme: {
         extend: {
